@@ -1,0 +1,50 @@
+
+/** General Styles **/
+.content-group {
+    margin: 15px 0;
+}
+
+
+/** Button **/
+a.button {
+    border-color: var(--color); /*tobechanged*/
+    background: var(--color);
+    color: #fff;
+    font-size: 18px;
+    min-width: 240px;
+    padding: 20px 20px;
+    border-radius: 12px;
+    border-width: 2px;
+    border-style: solid;
+    font-weight: 700;
+    text-align: center;
+    display: inline-block;
+    margin: 0 15px 15px 0;
+    transition: 350ms;
+}
+
+a.button:hover {
+    color: #000;
+    background: #fff;
+}
+
+
+
+/** Button Group **/
+.button-group ul {
+    margin: 0;
+    padding: 0;
+}
+
+.button-group ul li {
+    display: inline-block;
+}
+
+
+/** Colored Bar **/
+.colored-bar {
+    width: 100%;
+    margin: 0;
+    background: var(--color);
+    height: 45px;
+}
