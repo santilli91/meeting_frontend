@@ -3,14 +3,13 @@ import ButtonGroup from './ButtonGroup'
 import ColoredBar from './ColoredBar.js'
 import TextArea from './TextArea'
 import {Heading,SubHeading} from './Headings'
+import FullMotionVideo from './FullMotionVideo'
 
 
 const ArticleDisplay = ({content}) => {
 
     return (
       <article>
-        <h1>{content[0].title}</h1>
-        <div className="date">Created On: {content[0].created}</div>
         {content.map((item,key) => {
           console.log(item)
           switch(item.type) {
@@ -24,6 +23,8 @@ const ArticleDisplay = ({content}) => {
               return <Heading key={key} content={item} />
             case "sub_heading":
               return <SubHeading key={key} content={item} />
+            case "full_motion_video":
+              return <FullMotionVideo key={key} video_link={item.video_link} />
             default:
               return <div key={key}></div>
           }  

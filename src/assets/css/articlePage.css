@@ -1,7 +1,8 @@
 
 /** General Styles **/
 .content-group {
-    margin: 15px 0;
+    padding: 15px 0;
+    background: #fff;
 }
 
 
@@ -48,3 +49,19 @@ a.button:hover {
     background: var(--color);
     height: 45px;
 }
+
+/** Full Motion Video **/
+.full-motion-video-wrapper{ 
+    padding-bottom: 50px;
+    padding-top: 50px; 
+    width: 100%;
+    }
+    video.full-motion-video { 
+    min-width: 100%;
+    position: fixed;
+    top:0;
+    z-index: -999;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    }
