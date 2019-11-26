@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://meetings.hmpcloud.com/",
   "dependencies": {
+    "base-64": "^0.1.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-html-parser": "^2.0.2",

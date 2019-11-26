@@ -10,7 +10,7 @@ const ArticleDisplay = ({content}) => {
 
     return (
       <article>
-        {content.map((item,key) => {
+        {content.content.map((item,key) => {
           console.log(item)
           switch(item.type) {
             case "button_group":
