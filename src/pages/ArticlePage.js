@@ -13,7 +13,7 @@ class ArticlePage extends React.Component {
           title: "Loading",
           created: 0,
           status: 200,
-          content: [],
+          output: [],
         },
       }
       this.getNID = this.getNID.bind(this)
@@ -29,7 +29,7 @@ class ArticlePage extends React.Component {
     }
   
     getNID(current_path) {
-      fetch(`/api/get-content-id?path=${current_path}`, {
+      fetch(`/api/get-content-id?path=${current_path}&user_domain=${window.location.hostname}`, {
         headers: new Headers({
           "Authorization": `Basic ${base64.encode("admin:ch33s3y")}`
         }),
@@ -44,8 +44,7 @@ class ArticlePage extends React.Component {
       console.log(this.state)
       if(this.state.content.status === 404)
         return <PageNotFound/>
-      //return <div>Hello</div>
-        return <ArticleDisplay content={this.state.content}/>
+        return <ArticleDisplay content={this.state.content.output}/>
     }
 }
 

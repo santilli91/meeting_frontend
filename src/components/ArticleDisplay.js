@@ -7,10 +7,11 @@ import FullMotionVideo from './FullMotionVideo'
 
 
 const ArticleDisplay = ({content}) => {
-
+  if(!content)
+    return <></>
     return (
       <article>
-        {content.content.map((item,key) => {
+        {content.map((item,key) => {
           console.log(item)
           switch(item.type) {
             case "button_group":
