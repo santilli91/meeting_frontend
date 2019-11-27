@@ -29,10 +29,15 @@ class ArticlePage extends React.Component {
     }
   
     getNID(current_path) {
-      fetch(`/api/get-content-id?path=${current_path}&user_domain=${window.location.hostname}`, {
+      const domain = window.location.hostname === 'localhost'?'':'http://meetings.hmpcloud.com'
+      fetch(`${domain}/api/get-content-id?path=${current_path}&user_domain=${window.location.hostname}`, {
         headers: new Headers({
-          "Authorization": `Basic ${base64.encode("admin:ch33s3y")}`
+          "Authorization": `Basic ${base64.encode("admin:ch33s3y")}`,
+          "Access-Control-Allow-Origin":"*",
+          "Content-Type":"application/hal_json",
         }),
+        mode: 'cors',
+        method: 'GET'
       })
         .then(response=>response.json())
         .then(content => this.setState({content}))
