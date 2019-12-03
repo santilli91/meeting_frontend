@@ -3,8 +3,8 @@ import React from 'react'
 
 const NetworkBanner = ({img,link}) => (
     <div id="network-banner">
-        <div class="container">
-            <a href={link} target="_blank"><img src={img} /></a>
+        <div className="container">
+            <a href={link} target="_blank" rel="noopener noreferrer"><img alt="Network Banner" src={img} /></a>
         </div>
     </div>
 )

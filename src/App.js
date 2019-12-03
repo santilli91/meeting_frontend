@@ -47,8 +47,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header branding= {this.state.branding} />
           <Router>
+            <Header branding= {this.state.branding} />
             <Switch>
               <Route path="/" exact><Tmp/></Route>
               <Route component={ArticlePage}/>

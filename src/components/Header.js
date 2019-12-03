@@ -5,9 +5,7 @@ import '../assets/css/header.css'
 
 class Header extends React.Component {
 
-    constructor(props) {
-        super(props)
-    }
+
 
 
 
@@ -16,7 +14,7 @@ class Header extends React.Component {
             <div id="header-wrap">
                 <section id="header">
                     <NetworkBanner link={this.props.branding.brand.network_link} img={this.props.branding.brand.network_logo} />
-                    <div class="container" id="primary-header">
+                    <div className="container" id="primary-header">
                        <HeaderLogo img={this.props.branding.brand.primary_logo} />
                     </div>
                 </section>
