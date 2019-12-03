@@ -33,3 +33,7 @@ a {
 li {
   list-style: none;
 }
+
+body {
+  margin-top: 130px;
+}
