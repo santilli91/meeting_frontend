@@ -59,6 +59,21 @@
     display: block;
 }
 
+#main-menu ul li {
+    display: block;
+}
+#main-menu li a {
+    color: black;
+    font-weight: bold;
+    display: block;
+    text-decoration: none;
+}
+#main-menu li.active a {
+    color: #afafaf;
+    cursor: text;
+    pointer-events: none;
+
+}
 
 @media (min-width: 768px) {
     #primary-header {

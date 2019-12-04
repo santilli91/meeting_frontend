@@ -6,13 +6,9 @@ import '../../assets/css/header.css'
 
 class Header extends React.Component {
 
-
-
-
-
     render() {
         console.log(this.props)
-        if(this.props.branding.brand.site_name) 
+        if(this.props.branding.brand) 
             return (
                 <div id="header-wrap">
                     <section id="header">

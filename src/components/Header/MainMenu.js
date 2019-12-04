@@ -9,6 +9,40 @@ class MainMenu extends React.Component {
         super(props)
         this.state = {
             toggle: false,
+            path: window.location.pathname,
+            menu: [
+                {
+                    title: "item",
+                    items: [
+                        {
+                            link: '/article/test-page',
+                            title: 'Test Page',
+                        },
+                        {
+                            link: '/',
+                            title: 'Homepage'
+                        }
+                    ]
+                },
+                {
+                    title: "item 2",
+                    items: [
+                        {
+                            link: '/article/test-page',
+                            title: 'Test Page',
+                        }
+                    ]
+                },
+                {
+                    title: "item 3",
+                    items: [
+                        {
+                            link: '/article/test-page',
+                            title: 'Test Page',
+                        }
+                    ]
+                },
+            ]
         }
 
         this.toggleMenu = this.toggleMenu.bind(this)
@@ -29,11 +63,15 @@ class MainMenu extends React.Component {
     componentWillUnmount() {
         document.removeEventListener('mousedown',this.handleClick,false)
     }
+    
 
     handleClick = (e) => {
         if(!this.node.contains(e.target)) {
             this.handleClose()
         }
+        this.setState({
+            path: window.location.pathname
+        })
     }
 
     handleClose() {
@@ -43,6 +81,7 @@ class MainMenu extends React.Component {
     }
 
     render() {
+        console.log(window.location.pathname)
         return (
             <div ref={node => this.node = node}>
                 <button id="main-menu-toggle" className="button" onClick={this.toggleMenu}>Menu</button>
@@ -51,22 +90,21 @@ class MainMenu extends React.Component {
                         <div className="row">
                             <nav id="main-menu">
                                 <ul>
-                                    <li>
+                                    {this.state.menu.map((item,i) => (
+                                        <li key={i}>   
+                                        <h3>{item.title}</h3>
                                         <ul>
-                                            <li><Link to="/" onClick={this.handleClose}>Link</Link></li>
-                                            <li>Link</li>
-                                            <li>Link</li>
-                                            <li>Link</li>
+                                            {item.items.map((link,key) => (
+                                                <li key={key} className={this.state.path === link.link?"active":''}>
+                                                    <Link to={link.link} onClick={this.handleClose} >
+                                                        {link.title}
+                                                    </Link>
+                                                </li>   
+                                            ))}
                                         </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li>Link</li>
-                                            <li>Link</li>
-                                            <li>Link</li>
-                                            <li>Link</li>
-                                        </ul>
-                                    </li>
+                                        </li>
+                                
+                                    ))}
                                 </ul>
                             </nav>
                         </div>

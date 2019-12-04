@@ -34,7 +34,7 @@ class Hero extends React.Component {
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center top',
                     }} 
-                    id="hero"></div>}
+                    id="full-hero"></div>}
                 </div>
         )
     }
