@@ -14,6 +14,7 @@ class ArticlePage extends React.Component {
           created: 0,
           status: 200,
           output: [],
+          hero: null,
         },
       }
       this.getNID = this.getNID.bind(this)
@@ -49,7 +50,7 @@ class ArticlePage extends React.Component {
       console.log(this.state)
       if(this.state.content.status === 404)
         return <PageNotFound/>
-        return <ArticleDisplay content={this.state.content.output}/>
+        return <ArticleDisplay content={this.state.content.output} hero={this.state.content.hero} />
     }
 }
 

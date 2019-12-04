@@ -24,11 +24,11 @@ class FullMotionVideo extends React.Component {
 
     render() {
         return (
-            <div style={{height:this.state.height}} className="full-motion-video-wrapper">
-        <video style={{height:this.state.height}} className="full-motion-video" muted autoPlay loop>
-            <source src={this.props.video_link} type="video/mp4" />
-        </video>
-    </div>
+            <div style={{height:this.state.height}} className="full-motion-video-wrapper" id="hero-wrapper">
+                <video style={{height:this.state.height}} className="full-motion-video" id="hero" muted autoPlay loop>
+                    <source src={this.props.video_link} type="video/mp4" />
+                </video>
+            </div>
         )
     }
 

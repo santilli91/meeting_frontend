@@ -54,17 +54,20 @@
 }
 
 /** Full Motion Video **/
-.full-motion-video-wrapper{ 
+#full-hero-wrapper{ 
     padding-bottom: 50px;
     padding-top: 50px; 
     width: 100%;
+    max-width: 100%;
     }
-    video.full-motion-video { 
+    #full-hero { 
     min-width: 100%;
     position: fixed;
     top:0;
     z-index: -999;
     left: 0;
     width: 100%;
+    max-width: 100%;
     object-fit: cover;
+    height: 100%;
     }
