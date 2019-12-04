@@ -1,6 +1,6 @@
 import React from 'react'
-import ArticleDisplay from '../components/ArticleDisplay'
-import PageNotFound from '../components/PageNotFound'
+import ArticleDisplay from '../components/Article/ArticleDisplay'
+import PageNotFound from '../components/Global/PageNotFound'
 import base64 from 'base-64'
 import '../assets/css/articlePage.css';
 

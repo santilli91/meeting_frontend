@@ -1,7 +1,8 @@
 import React from 'react'
 import NetworkBanner from './NetworkBanner'
 import HeaderLogo from './HeaderLogo'
-import '../assets/css/header.css'
+import HeaderRight from './HeaderRight'
+import '../../assets/css/header.css'
 
 class Header extends React.Component {
 
@@ -15,7 +16,10 @@ class Header extends React.Component {
                 <section id="header">
                     <NetworkBanner link={this.props.branding.brand.network_link} img={this.props.branding.brand.network_logo} />
                     <div className="container" id="primary-header">
-                       <HeaderLogo img={this.props.branding.brand.primary_logo} />
+                        <div className="row">
+                            <HeaderLogo img={this.props.branding.brand.primary_logo} />
+                            <HeaderRight date={this.props.branding.brand.meeting_date} location={this.props.branding.brand.meeting_location} />
+                        </div>
                     </div>
                 </section>
             </div>
