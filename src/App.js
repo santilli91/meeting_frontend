@@ -45,6 +45,8 @@ class App extends React.Component {
   }
 
   render() {
+    document.body.style.setProperty('--color',this.state.branding.brand.primary_color)
+    document.body.style.setProperty('--color',this.state.branding.brand.secondary_color)
     return (
       <div className="App">
           <Router>
