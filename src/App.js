@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter  as Router,Switch,Route,Link} from 'react-router-dom';
+import {BrowserRouter  as Router,Switch,Route} from 'react-router-dom';
 import ArticlePage from './pages/ArticlePage'
 import base64 from 'base-64'
 import Header from './components/Header/Header'
@@ -18,7 +18,8 @@ class App extends React.Component {
           site_name: 'HMP Meeting',
           primary_logo: null,
           network_logo: null,
-          network_link: 'https://www.hmpglobal.com'
+          network_link: 'https://www.hmpglobal.com',
+          favicon: null,
         }
       }
     }
@@ -45,6 +46,7 @@ class App extends React.Component {
   }
 
   render() {
+    setFavicon(this.state.branding.brand.favicon)
     document.body.style.setProperty('--color',this.state.branding.brand.primary_color)
     document.body.style.setProperty('--secondary-color',this.state.branding.brand.secondary_color)
     return (
@@ -52,8 +54,7 @@ class App extends React.Component {
           <Router>
             <Header branding= {this.state.branding} />
             <Switch>
-              <Route path="/" exact><Tmp/></Route>
-              <Route component={ArticlePage}/>
+              <Route render={(props) => <ArticlePage {...props} branding={this.state.branding} /> }/>
             </Switch>
           </Router> 
       </div>
@@ -61,8 +62,15 @@ class App extends React.Component {
   }
 }
 
-const Tmp = () => (<>Homepage<br></br><Link to="/article/test-page">TestPage</Link></>)
 
-
+const setFavicon = (icon) => {
+  if(!icon)
+    return
+  var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+  link.type = 'image/x-icon';
+  link.rel = 'shortcut icon';
+  link.href = icon;
+  document.getElementsByTagName('head')[0].appendChild(link);
+}
 
 export default App;

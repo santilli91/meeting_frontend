@@ -28,8 +28,8 @@ class MainMenu extends React.Component {
                     title: "item 2",
                     items: [
                         {
-                            link: '/article/test-page',
-                            title: 'Test Page',
+                            link: '/rates',
+                            title: 'Registrations',
                         }
                     ]
                 },
@@ -56,7 +56,7 @@ class MainMenu extends React.Component {
         })
     }
 
-    componentWillMount() {
+    componentDidMount() {
         document.addEventListener('mousedown',this.handleClick, false)
     }
 
@@ -81,7 +81,6 @@ class MainMenu extends React.Component {
     }
 
     render() {
-        console.log(window.location.pathname)
         return (
             <div ref={node => this.node = node}>
                 <button id="main-menu-toggle" className="button" onClick={this.toggleMenu}>Menu</button>

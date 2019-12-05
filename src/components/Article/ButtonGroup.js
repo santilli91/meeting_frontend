@@ -2,12 +2,11 @@ import React from 'react'
 import Button from '../Global/Button'
 
 
-const ButtonGroup = (props) => (
+const ButtonGroup = ({buttons}) => (
     <div className="button-group content-group"><ul>
-    {[props.content.field_link.map((link,key) => {
-        const linkArray = link.split(':')
-        return <li key={key}><Button  text={linkArray[0]} link={linkArray[1]} /></li>
-        })]}
+    {[buttons.map((button,key) => {
+        return <li key={key}><Button  text={button.text} link={button.link} /></li>
+    })]}
     </ul></div>
 ) 
 

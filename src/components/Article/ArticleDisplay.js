@@ -14,22 +14,22 @@ const ArticleDisplay = ({content,hero}) => {
     if(hero) {
       heroOutput = hero.type === 'hero'?<Hero src={hero.src} />:<Hero video_link={hero.src} />
     }
+
     return (
       <article>
         {heroOutput}
         {content.map((item,key) => {
-          console.log(item)
           switch(item.type) {
             case "button_group":
-              return <ButtonGroup key={key} content={item} />
+              return <ButtonGroup key={key} buttons={item.buttons} />
             case "colored_bar":
-              return <ColoredBar key={key} content={item} />
+              return <ColoredBar key={key} />
             case "text":
-              return <TextArea key={key} content={item} />
+              return <TextArea key={key} text={item.text} />
             case "heading":
-              return <Heading key={key} content={item} />
+              return <Heading key={key} heading={item.heading} />
             case "sub_heading":
-              return <SubHeading key={key} content={item} />
+              return <SubHeading key={key} heading={item.heading} />
             default:
               return <div key={key}></div>
           }  

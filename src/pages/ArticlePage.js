@@ -1,4 +1,5 @@
 import React from 'react'
+import MetaTags from 'react-meta-tags'
 import ArticleDisplay from '../components/Article/ArticleDisplay'
 import PageNotFound from '../components/Global/PageNotFound'
 import base64 from 'base-64'
@@ -47,10 +48,21 @@ class ArticlePage extends React.Component {
   
   
     render() {
-      console.log(this.state)
-      if(this.state.content.status === 404)
-        return <PageNotFound/>
-        return <ArticleDisplay content={this.state.content.output} hero={this.state.content.hero} />
+      if(this.state.content.status === 404) {
+        return (<>
+          <MetaTags><title>Page Not Found | {this.props.branding.brand.site_name}</title></MetaTags>
+          <PageNotFound/>
+        </>)
+      }
+      document.body.className = 
+        'node-' + this.state.content.nid + 
+        ' node-type-' + this.state.content.type +
+        ' page-' + (this.props.location.pathname === '/'?'home':this.props.location.pathname.replace(/\//g,'-'))
+       
+       return (<>
+          <MetaTags><title>{this.state.content.title}|{this.props.branding.brand.site_name}</title></MetaTags>
+          <ArticleDisplay content={this.state.content.output} hero={this.state.content.hero} />
+        </>)
     }
 }
 
